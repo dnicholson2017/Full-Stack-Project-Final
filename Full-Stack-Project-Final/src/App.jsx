@@ -1,16 +1,13 @@
 import { useState } from 'react'
+import React from 'react';
 import './App.css'
-import { useParams } from 'react-router-dom'
+import Login from './components/Login';
 
 function App() {
-  const [count, setCount] = useState(0)
-const { username } = useParams()
-
 
   return (
-
     <div>
-      hello
+      <Login />
     </div>
   )
 }

@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../components/Card';
 import { supabase } from '../client'
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+
 
 
 const ReadPost = (props) => {
 
     const [posts, setPosts] = useState([]);
+    const { username } = useParams();
 
     useEffect(() => {
         const fetchPost = async () => {
@@ -23,6 +27,7 @@ const ReadPost = (props) => {
     
     return (
         <div className="ReadPosts">
+            <Link to={`/${username}/post`}><button className="postBtn"> Post </button></Link>
             {
                 posts && posts.length > 0 ?
                 posts.map((post,index) => 

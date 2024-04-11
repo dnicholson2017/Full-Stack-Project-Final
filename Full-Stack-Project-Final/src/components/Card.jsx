@@ -4,6 +4,7 @@ import more from '../assets/more.png';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { supabase } from '../client';
+import Comment from './Comment';
 
 const Card = (props) => {
   const { username } = useParams();
@@ -57,6 +58,11 @@ const Card = (props) => {
       <button className="dislikeBtn" onClick={updateDislikeCount}>
         Dislike
       </button>
+      <Comment 
+          key={props.id} // Use post ID as the key
+          post_id={props.id}
+          commenter={username}
+      />
     </div>
   );
 };

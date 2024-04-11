@@ -74,7 +74,10 @@ const Comment = (props) => {
             <div>
                 {
                     readComment && readComment.map((item, index) => (
-                        <h3 key={index}>{item.content}</h3>
+                        <div>
+                            <h3 key={index}>{item.content}</h3>
+                            <h4>{item.commenter}</h4>
+                        </div>
                     ))
                 }
             </div>

@@ -35,7 +35,6 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-* [ ] List anything else that you added to improve the site's functionality!
 * [X] Users must sign-up for an account to access the posts
 * [X] Users can login after creating an account
 

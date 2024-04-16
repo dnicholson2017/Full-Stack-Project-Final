@@ -7,7 +7,7 @@ const EditPost = ({data}) => {
 
     const { id } = useParams();
     const { username } = useParams();
-    const [post, setPost] = useState({id: null, content:"" });
+    const [post, setPost] = useState({id: null, title: "", content:"" });
 
     const handleChange = (event) => {
         const {name, value} = event.target;
@@ -25,7 +25,7 @@ const EditPost = ({data}) => {
     
         await supabase
             .from('Posts')
-            .update({ content: post.content })
+            .update({ title: post.title, content: post.content })
             .eq('id', id);
     
         window.location = `/${username}`;
@@ -46,6 +46,9 @@ const EditPost = ({data}) => {
     return (
         <div>
             <form>
+                <label for="content">Title</label> <br />
+                <input type="text" id="title" name="title" onChange={handleChange} /><br />
+                <br />
                 <label for="content">Content</label> <br />
                 <textarea rows="5" cols="50" id="content" name="content"  onChange={handleChange}>
                 </textarea>                

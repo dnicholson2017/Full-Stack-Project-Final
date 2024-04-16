@@ -6,7 +6,7 @@ const CreatePost = () => {
 
     const { username } = useParams();
     // first create state variables that will have the state of the required data to be sent to supabase
-    const [post, setPost] = useState({poster:username, content:"", likes:0, dislikes:0 });
+    const [post, setPost] = useState({poster:username, title: "", content:"", likes:0, dislikes:0 });
 
     const handleChange = (event) => {
         const {name, value} = event.target;
@@ -24,7 +24,7 @@ const CreatePost = () => {
         try {
             const { data, error } = await supabase
                 .from('Posts')
-                .insert({ poster: post.poster, content: post.content, likes: post.likes, dislikes: post.dislikes })
+                .insert({ poster: post.poster, title: post.title, content: post.content, likes: post.likes, dislikes: post.dislikes })
                 .select();
     
             if (error) {
@@ -48,6 +48,9 @@ const CreatePost = () => {
     return (
         <div>
             <form>
+                <label for="title">Title</label> <br />
+                <input type="text" id="title" name="title" onChange={handleChange} /><br />
+                <br />
                 <label for="content">Content</label> <br />
                 <textarea rows="5" cols="50" id="content" name="content"  onChange={handleChange}>
                 </textarea>                

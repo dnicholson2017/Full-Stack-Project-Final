@@ -11,6 +11,7 @@ const Card = (props) => {
 
   const [likesCount, setLikeCount] = useState(props.likes);
   const [dislikeCount, setDislikeCount] = useState(props.dislikes);
+  const [formattedCreatedAt, setFormattedCreatedAt] = useState('');
 
   useEffect(() => {
     async function updateLikes() {
@@ -31,7 +32,18 @@ const Card = (props) => {
 
     updateLikes();
     updateDislikes();
-  }, [likesCount, dislikeCount, props.id]);
+
+    // Format the created_at date
+    const formattedDate = new Date(props.created_at).toLocaleString('en-US', {
+      hour12: false,
+      hour: 'numeric',
+      minute: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      year: 'numeric',
+    });
+    setFormattedCreatedAt(formattedDate);
+  }, [likesCount, dislikeCount, props.id, props.created_at]);
 
   const updateLikeCount = () => {
     setLikeCount((count) => count + 1);
@@ -47,7 +59,9 @@ const Card = (props) => {
         <img className="moreButton" alt="edit button" src={more} />
       </Link>
       <h2 className="poster">{props.poster}</h2>
-      <h3 className="content">{props.content}</h3>
+      <h3 className="title">{props.title}</h3>
+      <h5 className="content">{props.content}</h5>
+      <h5 className="created_at">{formattedCreatedAt}</h5>
       <div className="interactions">
         <p className="likes">👍 {likesCount}</p>
         <p className="dislikes">👎 {dislikeCount}</p>
@@ -58,11 +72,11 @@ const Card = (props) => {
       <button className="dislikeBtn" onClick={updateDislikeCount}>
         Dislike
       </button>
-      <Comment 
+      {/* <Comment 
           key={props.id} // Use post ID as the key
           post_id={props.id}
           commenter={username}
-      />
+      /> */}
     </div>
   );
 };

@@ -29,7 +29,7 @@ const ReadPost = () => {
 
         fetchPosts();
     }, []);
-
+    
     const searchItems = (searchValue) => {
         setSearchInput(searchValue);
 
@@ -82,6 +82,8 @@ const ReadPost = () => {
                         <Card
                             key={post.id} // Use post ID as the key
                             id={post.id}
+                            created_at={post.created_at}
+                            title={post.title}
                             poster={post.poster}
                             content={post.content}
                             likes={post.likes}

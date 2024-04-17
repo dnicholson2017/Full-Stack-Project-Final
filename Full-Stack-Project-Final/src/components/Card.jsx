@@ -12,6 +12,7 @@ const Card = (props) => {
   const [likesCount, setLikeCount] = useState(props.likes);
   const [dislikeCount, setDislikeCount] = useState(props.dislikes);
   const [formattedCreatedAt, setFormattedCreatedAt] = useState('');
+  const [showComments, setShowComments] = useState(false); // State to track whether comments are visible
 
   useEffect(() => {
     async function updateLikes() {
@@ -53,6 +54,10 @@ const Card = (props) => {
     setDislikeCount((count) => count + 1);
   };
 
+  const toggleComments = () => {
+    setShowComments((prevState) => !prevState); // Toggle the showComments state
+  };
+
   return (
     <div className="Card">
       <Link to={`/${username}/edit/${props.id}`}>
@@ -72,11 +77,16 @@ const Card = (props) => {
       <button className="dislikeBtn" onClick={updateDislikeCount}>
         Dislike
       </button>
-      {/* <Comment 
+      <button onClick={toggleComments}>
+        {showComments ? 'Hide Comments' : 'Show Comments'}
+      </button>
+      {showComments && (
+        <Comment 
           key={props.id} // Use post ID as the key
           post_id={props.id}
           commenter={username}
-      /> */}
+        />
+      )}
     </div>
   );
 };

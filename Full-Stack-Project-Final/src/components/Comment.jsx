@@ -61,7 +61,7 @@ const Comment = (props) => {
         }
 
         fetchComments();
-    }, [readComment]);
+    }, []);
 
     return (
         <div>

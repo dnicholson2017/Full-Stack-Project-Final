@@ -1,0 +1,6 @@
+.create-comment-container{
+    display: flex;
+    flex-direction: column;
+    padding-left: 110px;
+    width: 50%;
+}

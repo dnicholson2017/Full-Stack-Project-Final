@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { supabase } from '../client';
+import './Comment.css'
 
 const Comment = (props) => {
 
@@ -66,11 +67,12 @@ const Comment = (props) => {
     return (
         <div>
             {/* <input type="text" name="comment" id="comment"/> */}
+            <div className="create-comment-container">
+                <textarea  rows="5" cols="20" id="content" name="content" onChange={handleChange}>
+                </textarea>
 
-            <textarea  rows="5" cols="20" id="content" name="content" onChange={handleChange}>
-            </textarea>
-
-            <input type="submit" value="Submit" onClick={createComment} />
+                <input type="submit" value="Submit" onClick={createComment} />
+            </div>
             <div>
                 {
                     readComment && readComment.map((item, index) => (

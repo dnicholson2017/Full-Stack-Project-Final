@@ -63,6 +63,11 @@ const ReadPost = () => {
 
     return (
         <div className="ReadPosts">
+            <div className='sign-out'>
+                <Link to={'/'}>
+                    <button>Sign-Out</button>
+                </Link>
+            </div>
             <Link to={`/${username}/post`}><button className="postBtn"> Post </button></Link>
             <input
                 type="text"

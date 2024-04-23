@@ -42,6 +42,7 @@ const CreateUser = () => {
         console.log('Submit clicked');
         console.log(user);
         console.log(supabase);
+        window.location = '/';
     }
 
     return (

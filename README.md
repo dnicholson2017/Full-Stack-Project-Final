@@ -42,14 +42,9 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![Full-Stack-Final](https://github.com/dnicholson2017/Full-Stack-Project-Final/assets/143464047/00ba53a7-dbdc-4045-9ce6-91f35c79c072)
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
 [ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
 

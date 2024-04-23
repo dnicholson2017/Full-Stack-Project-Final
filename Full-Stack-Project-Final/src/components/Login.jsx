@@ -58,7 +58,7 @@ const Login = () => {
                 <br/>
 
                 <label>Password</label>
-                <input type='text' id='password' name='password' onChange={handleChange}/><br/>
+                <input type='password' id='password' name='password' onChange={handleChange}/><br/>
                 <br/>
 
                 {/* By default, when you click a button inside a form without specifying a type attribute,

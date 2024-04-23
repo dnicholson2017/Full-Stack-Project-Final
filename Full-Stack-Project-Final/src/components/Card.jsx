@@ -60,9 +60,15 @@ const Card = (props) => {
 
   return (
     <div className="Card">
-      <Link to={`/${username}/edit/${props.id}`}>
-        <img className="moreButton" alt="edit button" src={more} />
-      </Link>
+        {/* // Check if the currently logged-in user is the same as the poster */}
+        {username === props.poster ? (
+          <Link to={`/${username}/edit/${props.id}`}>
+            <img className="moreButton" alt="edit button" src={more} />
+          </Link>
+        ) : (
+          <img className="moreButton" alt="edit button" src={more} />
+        )}
+
       <h2 className="poster">{props.poster}</h2>
       <h3 className="title">{props.title}</h3>
       <h5 className="content">{props.content}</h5>

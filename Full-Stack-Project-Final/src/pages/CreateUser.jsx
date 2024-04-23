@@ -60,7 +60,7 @@ const CreateUser = () => {
                 <br/>
 
                 <label for="password">Password</label> <br />
-                <input type="text" id="password" name="password" onChange={handleChange} /><br />
+                <input type="password" id="password" name="password" onChange={handleChange} /><br />
                 <br/>
 
                 <input type="submit" value="Submit" onClick={createUser} />

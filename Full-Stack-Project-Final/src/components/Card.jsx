@@ -58,6 +58,10 @@ const Card = (props) => {
     setShowComments((prevState) => !prevState); // Toggle the showComments state
   };
 
+  const alertButton = () => {
+    alert("You can't edit this post because it isn't yours.");
+  };
+
   return (
     <div className="Card">
         {/* // Check if the currently logged-in user is the same as the poster */}
@@ -66,7 +70,7 @@ const Card = (props) => {
             <img className="moreButton" alt="edit button" src={more} />
           </Link>
         ) : (
-          <img className="moreButton" alt="edit button" src={more} />
+          <img className="moreButton" alt="edit button" src={more} onClick={alertButton} />
         )}
 
       <h2 className="poster">{props.poster}</h2>

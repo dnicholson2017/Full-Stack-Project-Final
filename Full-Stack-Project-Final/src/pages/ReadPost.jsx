@@ -50,14 +50,22 @@ const ReadPost = () => {
     };
 
     const sortPosts = (postsToSort) => {
+        // Check the sorting criteria
         if (sortBy === 'likes') {
+            // If sorting by likes, create a new array (to avoid mutating the original)
+            // and sort it in descending order based on the number of likes
             return [...postsToSort].sort((a, b) => b.likes - a.likes);
         } else if (sortBy === 'dislikes') {
+            // If sorting by dislikes, create a new array (to avoid mutating the original)
+            // and sort it in descending order based on the number of dislikes
             return [...postsToSort].sort((a, b) => b.dislikes - a.dislikes);
         } else {
+            // If sorting criteria is neither 'likes' nor 'dislikes',
+            // simply return the original array without sorting
             return postsToSort;
         }
     };
+    
 
     const sortedPosts = sortPosts(filterResults.length > 0 ? filterResults : posts);
 
@@ -79,6 +87,7 @@ const ReadPost = () => {
                 <option value="likes">Likes</option>
                 <option value="dislikes">Dislikes</option>
             </select>
+            {/* If search input bar is empty and filtered results has a length of zero meaning our filter didn't capture anything */}
             {(searchInput !== "" && filterResults.length === 0) ? (
                 <div>No results found</div>
             ) : (

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '../client'
 // import './EditPost.css'
 
@@ -7,6 +7,7 @@ const EditPost = ({data}) => {
 
     const { id } = useParams();
     const { username } = useParams();
+    const navigate = useNavigate(); // Add this line to get the navigate function
     const [post, setPost] = useState({id: null, title: "", content:"" });
 
     const handleChange = (event) => {
@@ -28,7 +29,7 @@ const EditPost = ({data}) => {
             .update({ title: post.title, content: post.content })
             .eq('id', id);
     
-        window.location = `/${username}`;
+        navigate(`/${username}`);
     }
 
     // Delete post
@@ -40,7 +41,7 @@ const EditPost = ({data}) => {
             .delete()
             .eq('id', id); 
     
-        window.location = `/${username}`;
+        navigate(`/${username}`);
     }
 
     return (

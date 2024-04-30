@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { supabase } from '../client';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const CreateUser = () => {
+
+    const navigate = useNavigate(); // Add this line to get the navigate function
 
     // first create state variables that will have the state of the required data to be sent to supabase
     const [user, setUser] = useState({username:"", password:"", firstname:"", lastname: "" });
@@ -42,7 +46,7 @@ const CreateUser = () => {
         console.log('Submit clicked');
         console.log(user);
         console.log(supabase);
-        window.location = '/';
+        navigate('/')
     }
 
     return (

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { supabase } from '../client';
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom';
 
 const CreatePost = () => {
 
     const { username } = useParams();
+    const navigate = useNavigate(); // Add this line to get the navigate function
+
     // first create state variables that will have the state of the required data to be sent to supabase
     const [post, setPost] = useState({poster:username, title: "", content:"", likes:0, dislikes:0 });
 
@@ -39,7 +41,9 @@ const CreatePost = () => {
         // It is likely the reason you can't make changes to the table
 
         // Returns us to home page after submitting
-        window.location = `/${username}`;
+        // window.location = `/${username}`;
+        // Navigate to the user's page after successful post creation
+        navigate(`/${username}`);
         console.log('Submit clicked');
         console.log(post);
         console.log(supabase);

@@ -50,7 +50,9 @@ const ReadPost = () => {
     };
 
     const sortPosts = (postsToSort) => {
-        // Check the sorting criteria
+        // Check the sorting criteria. 
+        // If the result is negative, it means a should come before b in the sorted array, and
+        // if it's positive, b should come before a. If the result is zero, the order remains unchanged.
         if (sortBy === 'likes') {
             // If sorting by likes, create a new array (to avoid mutating the original)
             // and sort it in descending order based on the number of likes
@@ -66,7 +68,7 @@ const ReadPost = () => {
         }
     };
     
-
+    // use either filtered posts or the posts without the dilter applied to sort the posts
     const sortedPosts = sortPosts(filterResults.length > 0 ? filterResults : posts);
 
     return (

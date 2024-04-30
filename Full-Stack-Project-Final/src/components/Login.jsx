@@ -50,7 +50,7 @@ const Login = () => {
     return (
 
         <div>
-            <h1>Login</h1>
+            <h1>ReadIt</h1>
             <form className='login-form'>
 
                 <label>Username</label>
